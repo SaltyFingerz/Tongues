@@ -29,6 +29,12 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
         [SerializeField]
         Material m_HandMeshMaterial;
 
+        [SerializeField]
+        GameObject m_LeftHandController;
+
+        [SerializeField]
+        GameObject m_RightHandController;
+
         public bool drawMeshes
         {
             get => m_DrawMeshes;
@@ -119,6 +125,9 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
 
         protected void Update()
         {
+
+            
+
             if (m_Subsystem != null)
                 return;
 
@@ -210,6 +219,26 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
 
             bool leftHandTracked = subsystem.leftHand.isTracked;
             bool rightHandTracked = subsystem.rightHand.isTracked;
+
+            if (leftHandTracked)
+            {
+                m_LeftHandController.SetActive(false);
+            }
+
+            else
+            {
+                m_LeftHandController.SetActive(true);
+            }
+
+            if (rightHandTracked)
+            {
+                m_RightHandController.SetActive(false);
+            }
+
+            else
+            {
+                m_RightHandController.SetActive(true);
+            }
 
             if (m_PreviousDrawMeshes != m_DrawMeshes)
             {
