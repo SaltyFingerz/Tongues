@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using PDollarGestureRecognizer;
 using System.IO;
+using UnityEngine.Events;
 
 //script written  by following along to tutorial videos of Valem https://www.youtube.com/watch?v=kfA_73npjMA
 public class MovementRecogniser : MonoBehaviour
@@ -18,6 +19,12 @@ public class MovementRecogniser : MonoBehaviour
     public GameObject debugCubePrefab;
     public bool creationMode = true; //the mode for adding gestures to the library.
     public string newGestureName;
+
+    public float recognitionThreshold = 0.9f;
+
+    [System.Serializable]
+    public class UnityStringEvent : UnityEvent<string> { }
+    public UnityStringEvent OnRecognised; 
 
     private List<Gesture> trainingSet = new List<Gesture>();
     private bool isMoving = false;
@@ -97,6 +104,10 @@ public class MovementRecogniser : MonoBehaviour
         {
             Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
             Debug.Log(result.GestureClass + result.Score);
+            if(result.Score > recognitionThreshold)
+            {
+                OnRecognised.Invoke(result.GestureClass);
+            }
         }
 
 
