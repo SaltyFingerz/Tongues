@@ -241,6 +241,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &33964862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1638623224752312823, guid: c3fea635640008e4c85d3092f9e4cfe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1638623225208315845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &37209894
 GameObject:
   m_ObjectHideFlags: 0
@@ -16359,6 +16365,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1638623225208315850, guid: c3fea635640008e4c85d3092f9e4cfe4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638623225208315850, guid: c3fea635640008e4c85d3092f9e4cfe4,
+        type: 3}
+      propertyPath: rightTeleportation
+      value: 
+      objectReference: {fileID: 33964862}
     - target: {fileID: 1638623226251533304, guid: c3fea635640008e4c85d3092f9e4cfe4,
         type: 3}
       propertyPath: m_RootOrder

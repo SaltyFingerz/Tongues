@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186e5c5ee55d6764eb2e06816c6268a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightTeleportation: {fileID: 1638623225551069214}
+  rightTeleportation: {fileID: 1638623224752312823}
   teleportModeActivate:
     m_UseReference: 1
     m_Action:
