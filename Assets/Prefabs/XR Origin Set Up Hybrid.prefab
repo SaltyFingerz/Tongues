@@ -1769,6 +1769,7 @@ GameObject:
   - component: {fileID: 1638623224995417799}
   - component: {fileID: 1638623224995417796}
   - component: {fileID: 1638623224995417797}
+  - component: {fileID: 1638623225208315850}
   m_Layer: 30
   m_Name: XR Origin
   m_TagString: Untagged
@@ -2034,6 +2035,32 @@ MonoBehaviour:
   m_RightHand: {fileID: 1638623224802848713}
   m_LeftController: {fileID: 1638623225932934524}
   m_RightController: {fileID: 1638623225551069214}
+--- !u!114 &1638623225208315850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638623224995417912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186e5c5ee55d6764eb2e06816c6268a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightTeleportation: {fileID: 1638623225551069214}
+  teleportModeActivate:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Teleport Mode Activate
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3d4a2a17-935e-4773-b93d-399bdb9016cb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &1638623225082343071
 GameObject:
   m_ObjectHideFlags: 0
