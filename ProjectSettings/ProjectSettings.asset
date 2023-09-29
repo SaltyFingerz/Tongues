@@ -780,9 +780,23 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   scriptingDefineSymbols:
-    Android: USE_INPUT_SYSTEM_POSE_CONTROL
-    Standalone: USE_INPUT_SYSTEM_POSE_CONTROL
-    Windows Store Apps: USE_INPUT_SYSTEM_POSE_CONTROL
+    Android: USE_INPUT_SYSTEM_POSE_CONTROL;GLTFAST;READY_PLAYER_ME
+    EmbeddedLinux: GLTFAST;READY_PLAYER_ME
+    GameCoreScarlett: GLTFAST;READY_PLAYER_ME
+    GameCoreXboxOne: GLTFAST;READY_PLAYER_ME
+    LinuxHeadlessSimulation: GLTFAST;READY_PLAYER_ME
+    Lumin: GLTFAST;READY_PLAYER_ME
+    Nintendo Switch: GLTFAST;READY_PLAYER_ME
+    PS4: GLTFAST;READY_PLAYER_ME
+    PS5: GLTFAST;READY_PLAYER_ME
+    QNX: GLTFAST;READY_PLAYER_ME
+    Stadia: GLTFAST;READY_PLAYER_ME
+    Standalone: USE_INPUT_SYSTEM_POSE_CONTROL;GLTFAST;READY_PLAYER_ME
+    WebGL: GLTFAST;READY_PLAYER_ME
+    Windows Store Apps: USE_INPUT_SYSTEM_POSE_CONTROL;GLTFAST;READY_PLAYER_ME
+    XboxOne: GLTFAST;READY_PLAYER_ME
+    iPhone: GLTFAST;READY_PLAYER_ME
+    tvOS: GLTFAST;READY_PLAYER_ME
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
