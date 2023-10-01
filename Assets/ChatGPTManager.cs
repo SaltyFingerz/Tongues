@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using OpenAI;
 using UnityEngine.Events;
+using Oculus.Voice.Dictation;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(InputData))]
 //script written following along tutorial: https://www.youtube.com/watch?v=lYckk570Tqw
 public class ChatGPTManager : MonoBehaviour
 {
+    private InputData _inputData;
+  
+
     [TextArea(5,20)]
     public string personality;
     [TextArea(5, 20)]
@@ -14,6 +20,8 @@ public class ChatGPTManager : MonoBehaviour
     public int maxResponseWordLimit = 15;
 
     public List<NPCAction> actions;
+
+    public AppDictationExperience voiceToText;
 
     [System.Serializable]
 
@@ -35,6 +43,7 @@ public class ChatGPTManager : MonoBehaviour
     public string GetInstructions()
     {
         string instructions =
+            "You are a character in a video game. \n"+
             "You are a poodle and overlord living on cloud 9, a land of perfect happiness and bliss. \n" +
             "You are a figment of imagination, an entity living in people's subconscious who fuses its nature with the superconscious. \n" +
             "You must answer in less than" + maxResponseWordLimit + "words. \n" +
@@ -87,14 +96,33 @@ public class ChatGPTManager : MonoBehaviour
         }
     }
 
+
     void Start()
     {
-        
+        voiceToText.DictationEvents.OnFullTranscription.AddListener(AskChatGPT);
+       // float triggerValue = aButton.action.ReadValue<float>();
+
+        _inputData = GetComponent<InputData>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))//input for getting voice
+        {
+            voiceToText.Activate();
+        }
     }
+
+    public void VoiceRequest()
+    {
+        
+        {
+            voiceToText.Activate();
+            print("voiceRequested");
+        }
+    }
+
+ 
 }
