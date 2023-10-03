@@ -26,7 +26,7 @@ using System.Linq;
 public class OVRLipSyncContextMorphTarget : MonoBehaviour
 {
     // PUBLIC
-
+    public float sensitivity = 1;
     // Manually assign the skinned mesh renderer to this script
     [Tooltip("Skinned Mesh Rendered target to be driven by Oculus Lipsync")]
     public SkinnedMeshRenderer skinnedMeshRenderer = null;
@@ -166,7 +166,7 @@ public class OVRLipSyncContextMorphTarget : MonoBehaviour
                 // Viseme blend weights are in range of 0->1.0, we need to make range 100
                 skinnedMeshRenderer.SetBlendShapeWeight(
                     visemeToBlendTargets[i],
-                    frame.Visemes[i] * 100.0f);
+                    frame.Visemes[i] * sensitivity);
             }
         }
     }
@@ -188,7 +188,7 @@ public class OVRLipSyncContextMorphTarget : MonoBehaviour
 
             skinnedMeshRenderer.SetBlendShapeWeight(
                 laughterBlendTarget,
-                laughterScore * 100.0f);
+                laughterScore * sensitivity);
         }
     }
 

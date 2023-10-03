@@ -161,7 +161,7 @@ MonoBehaviour:
     composer:
       canvases: []
     characters: []
-  _configurationId: 
+  _configurationId: 3cce05a4-d6ff-4dc0-9a70-b3704517750b
   timeoutMS: 10000
   endpointConfiguration:
     _uriScheme: 
