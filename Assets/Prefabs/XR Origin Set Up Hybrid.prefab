@@ -5205,6 +5205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638623226251533304}
+  - component: {fileID: 88724802}
   m_Layer: 0
   m_Name: XR Origin Set Up Hybrid
   m_TagString: Untagged
@@ -5231,6 +5232,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88724802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638623226251533305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead168b0e693fcc42ba0d419f43b4706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1638623224995417915}
+  head: {fileID: 1638623225568440029}
+  leftHand: {fileID: 1638623225932934520}
+  rightHand: {fileID: 1638623225551069210}
 --- !u!1 &1638623226321288579
 GameObject:
   m_ObjectHideFlags: 0
