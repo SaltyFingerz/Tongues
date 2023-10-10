@@ -3,5 +3,5 @@ using UnityEngine;
 public class ChatGPTConfig : MonoBehaviour
 {
 
-    public static string apiKey = "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";
+    public static string apiKey = "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";
 }
