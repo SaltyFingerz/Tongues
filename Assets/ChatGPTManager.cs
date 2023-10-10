@@ -5,13 +5,17 @@ using OpenAI;
 using UnityEngine.Events;
 using Oculus.Voice.Dictation;
 using UnityEngine.InputSystem;
+using System;
 
 [RequireComponent(typeof(InputData))]
 //script written following along tutorial: https://www.youtube.com/watch?v=lYckk570Tqw
 public class ChatGPTManager : MonoBehaviour
 {
     private InputData _inputData;
-  
+
+    public OVRInput.Button button;
+    public OVRInput.Controller controller;
+
 
     [TextArea(5,20)]
     public string personality;
@@ -38,19 +42,30 @@ public class ChatGPTManager : MonoBehaviour
 
     [System.Serializable]
     public class OnResponseEvent : UnityEvent<string> { }
-    private OpenAIApi openAI = new OpenAIApi();
+    private OpenAIApi openAI;
     private List<ChatMessage> messages = new List<ChatMessage>();   
     public string GetInstructions()
     {
         string instructions =
-            "You are a character in a video game. \n"+
-            "You are a poodle and overlord living on cloud 9, a land of perfect happiness and bliss. \n" +
-            "You are a figment of imagination, an entity living in people's subconscious who fuses its nature with the superconscious. \n" +
+            /* "You are a character in a video game. \n"+
+             "You are a poodle and overlord living on cloud 9, a land of perfect happiness and bliss. \n" +
+             "You are a figment of imagination, an entity living in people's subconscious who fuses its nature with the superconscious. \n" +
+             "You must answer in less than" + maxResponseWordLimit + "words. \n" +
+             "Here is the information about your Personality : \n" +
+             personality + "\n" +
+             "Here is the information about the scene around you: \n" +
+             scene + "\n" + */
+
+
+            "You are an augmented reality apparition who travels between dimensions, and are floating above the player. \n" +
+            "You welcome the player to a new transent plane between realities and ask if they wish to be to taken deeper into virtual reality. \n" +
+            "You are mysterious and kind. \n" +
             "You must answer in less than" + maxResponseWordLimit + "words. \n" +
             "Here is the information about your Personality : \n" +
             personality + "\n" +
             "Here is the information about the scene around you: \n" +
             scene + "\n" +
+
             BuildActionInstructions() + 
             "Here is the message of the player : \n";
         return instructions;
@@ -104,12 +119,16 @@ public class ChatGPTManager : MonoBehaviour
 
         _inputData = GetComponent<InputData>();
 
+        string apiKey = ChatGPTConfig.apiKey;
+        openAI = new OpenAIApi(apiKey);
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))//input for getting voice
+        if(Input.GetKeyDown(KeyCode.Space) || OVRInput.GetDown(button, controller)) //input for getting voice
         {
             voiceToText.Activate();
         }
