@@ -8,6 +8,7 @@ public class SceneManagerScript : MonoBehaviour
    
     IEnumerator waitToTravel()
     {
+        //play whoosh magical audio here!
         yield return new WaitForSeconds(6);
         SceneManager.LoadScene("Bedroom");
     }

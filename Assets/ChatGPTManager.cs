@@ -70,7 +70,7 @@ public class ChatGPTManager : MonoBehaviour
             "Here is the message of the player : \n";
         return instructions;
     }
-
+    //
     public string BuildActionInstructions()
     {
         string instructions = "";
