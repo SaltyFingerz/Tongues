@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     //https://www.youtube.com/watch?v=7iYWpzL9GkM
     Vector2 movementInput;
@@ -13,21 +14,41 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
-    public MovementJoystick movementJoystick; 
+  //  public MovementJoystick movementJoystick; 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+
+    public float speed = 1f;
+    private Vector3 target;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        target = transform.position;
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(0) && movementInput == Vector2.zero)
+        {
+
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            target.z = transform.position.z;
+
+        }
+        else
+            target = transform.position;
+        if (movementInput == Vector2.zero)
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
 
-        if (movementJoystick.joystickVec.y != 0)
+      /*  if (movementJoystick.joystickVec.y != 0)
         {
             rb.velocity = new Vector2(movementJoystick.joystickVec.x * moveSpeed, movementJoystick.joystickVec.y * moveSpeed);
         }
@@ -36,6 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+      */
 
     
 
